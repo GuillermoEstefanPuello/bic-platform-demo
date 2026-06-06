@@ -1,65 +1,37 @@
-import Image from "next/image";
+﻿import Link from 'next/link'
+
+const roles = [
+  { href: '/admin',       initials: 'SM', color: '#635bff', label: 'Agency Admin',  sub: 'Full operational control — Sarah Mitchell' },
+  { href: '/client',      initials: 'SP', color: '#0e7490', label: 'Client Portal', sub: 'Request and track services — Dr. Sarah Patterson' },
+  { href: '/interpreter', initials: 'MG', color: '#92400e', label: 'Interpreter',   sub: 'Schedule, jobs and earnings — Maria Gonzalez' },
+]
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main style={{ minHeight: '100vh', background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'system-ui, sans-serif' }}>
+      <div style={{ width: '100%', maxWidth: '420px', padding: '0 24px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
+            <div style={{ width: '28px', height: '28px', borderRadius: '7px', background: '#635bff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 700, fontSize: '13px' }}>B</div>
+            <span style={{ fontSize: '16px', fontWeight: 700, color: '#111827' }}>BIC Platform</span>
+          </div>
+          <h1 style={{ fontSize: '20px', fontWeight: 700, color: '#111827', marginBottom: '6px' }}>Welcome to the demo</h1>
+          <p style={{ fontSize: '13px', color: '#9ca3af' }}>Select a role to preview the platform</p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div style={{ border: '1px solid #e5e7eb', borderRadius: '10px', overflow: 'hidden' }}>
+          {roles.map((r, i) => (
+            <Link key={r.href} href={r.href} style={{ display: 'flex', alignItems: 'center', gap: '14px', padding: '16px 20px', borderBottom: i < 2 ? '1px solid #e5e7eb' : 'none', textDecoration: 'none', background: '#fff' }}>
+              <div style={{ width: '38px', height: '38px', borderRadius: '50%', background: r.color, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '11px', fontWeight: 700, flexShrink: 0 }}>{r.initials}</div>
+              <div style={{ flex: 1 }}>
+                <div style={{ fontSize: '13px', fontWeight: 600, color: '#111827' }}>{r.label}</div>
+                <div style={{ fontSize: '11.5px', color: '#9ca3af', marginTop: '2px' }}>{r.sub}</div>
+              </div>
+              <div style={{ color: '#d1d5db' }}>→</div>
+            </Link>
+          ))}
         </div>
-      </main>
-    </div>
-  );
+        <p style={{ textAlign: 'center', fontSize: '11px', color: '#d1d5db', marginTop: '20px' }}>BIC Platform · Built by StarBound · DEVGEP+</p>
+      </div>
+    </main>
+  )
 }
