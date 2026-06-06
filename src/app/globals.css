@@ -13,49 +13,34 @@ html, body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Responsive sidebar */
 @media (max-width: 768px) {
-  aside {
-    width: 64px !important;
-    min-width: 64px !important;
-  }
-
-  aside span,
-  aside .sb-name,
-  aside div > div:last-child,
-  aside nav div > a > span:first-child,
-  aside > div:last-child > div > div:last-child {
+  /* Ocultar sidebar desktop */
+  .bic-sidebar {
     display: none !important;
   }
 
-  aside nav a {
-    justify-content: center !important;
-    padding: 10px !important;
+  /* Mostrar bottom nav */
+  .bic-bottom-nav {
+    display: block !important;
   }
 
-  aside > div:first-child {
-    justify-content: center !important;
-    padding: 0 !important;
-  }
-}
-
-@media (max-width: 480px) {
-  aside {
-    width: 52px !important;
-    min-width: 52px !important;
-  }
-
+  /* Padding bottom para que el contenido no quede bajo el nav */
   main {
-    padding: 16px !important;
+    padding-bottom: 80px !important;
   }
 
-  /* KPI grid — 2 columnas en móvil */
-  main > div:first-child {
+  /* KPIs — 2 columnas en móvil */
+  .bic-kpis {
     grid-template-columns: repeat(2, 1fr) !important;
   }
 
-  /* Main grid — una columna en móvil */
-  main > div:nth-child(2) {
+  /* Grid principal — una columna en móvil */
+  .bic-main-grid {
     grid-template-columns: 1fr !important;
+  }
+
+  /* Topbar compacto */
+  .bic-topbar-search {
+    display: none !important;
   }
 }

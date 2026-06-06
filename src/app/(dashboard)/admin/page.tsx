@@ -45,7 +45,7 @@ export default function AdminDashboard() {
         <main style={{ flex: 1, overflowY: 'auto', padding: '28px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
 
           {/* KPIs */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px' }} className="bic-kpis">
             {[
               { label: "Today's appointments", value: s.todayAppointments,          color: '#635bff', trend: '+12% vs yesterday', trendColor: '#12b76a' },
               { label: 'Active interpreters',  value: s.activeInterpreters,          color: '#111827', trend: 'of 22 registered',   trendColor: '#9ca3af' },
@@ -61,7 +61,7 @@ export default function AdminDashboard() {
           </div>
 
           {/* Main grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1.5fr 1fr', gap: '16px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1.5fr 1fr', gap: '16px' }} className="bic-main-grid">
 
             {/* Appointments */}
             <div style={CARD}>
